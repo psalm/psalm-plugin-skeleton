@@ -1,6 +1,7 @@
 <?php
 namespace Weirdan\PsalmPluginSkeleton\Tests;
 
+use SimpleXMLElement;
 use Weirdan\PsalmPluginSkeleton\Plugin;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -29,6 +30,17 @@ class PluginTest extends TestCase
     {
         $this->expectNotToPerformAssertions();
         $plugin = new Plugin();
-        $plugin($this->registration->reveal());
+        $plugin($this->registration->reveal(), null);
+    }
+
+    /**
+     * @test
+     * @return void
+     */
+    public function acceptsConfig()
+    {
+        $this->expectNotToPerformAssertions();
+        $plugin = new Plugin();
+        $plugin($this->registration->reveal(), new SimpleXMLElement('<myConfig></myConfig>'));
     }
 }
