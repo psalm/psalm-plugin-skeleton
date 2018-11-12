@@ -5,7 +5,7 @@ use SimpleXMLElement;
 use Weirdan\PsalmPluginSkeleton\Plugin;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Prophecy\ObjectProphecy;
-use Psalm\PluginApi\RegistrationInterface;
+use Psalm\Plugin\RegistrationInterface;
 
 class PluginTest extends TestCase
 {
