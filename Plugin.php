@@ -20,7 +20,7 @@ class Plugin implements PluginEntryPointInterface
         // ```
 
         // Psalm allows arbitrary content to be stored under you plugin entry in
-        // its config file, psalm.xml, so you plugin users can put some configiration
+        // its config file, psalm.xml, so you plugin users can put some configuration
         // values there. They will be provided to your plugin entry point in $config
         // parameter, as a SimpleXmlElement object. If there's no configuration present,
         // null will be passed instead.
