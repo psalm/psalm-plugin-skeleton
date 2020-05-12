@@ -1,4 +1,5 @@
 <?php
+
 namespace Weirdan\PsalmPluginSkeleton;
 
 use SimpleXMLElement;
@@ -18,11 +19,20 @@ class Plugin implements PluginEntryPointInterface
         // ```php
         // $psalm->addStubFile(__DIR__ . '/stubs/YourStub.php');
         // ```
+        foreach ($this->getStubFiles() as $file) {
+            $psalm->addStubFile($file);
+        }
 
         // Psalm allows arbitrary content to be stored under you plugin entry in
         // its config file, psalm.xml, so you plugin users can put some configuration
         // values there. They will be provided to your plugin entry point in $config
         // parameter, as a SimpleXmlElement object. If there's no configuration present,
         // null will be passed instead.
+    }
+
+    /** @return list<string> */
+    private function getStubFiles(): array
+    {
+        return glob(__DIR__ . '/stubs/*.phpstub') ?: [];
     }
 }
