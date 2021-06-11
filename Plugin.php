@@ -9,7 +9,7 @@ use Psalm\Plugin\RegistrationInterface;
 class Plugin implements PluginEntryPointInterface
 {
     /** @return void */
-    public function __invoke(RegistrationInterface $psalm, ?SimpleXMLElement $config = null) : void
+    public function __invoke(RegistrationInterface $psalm, ?SimpleXMLElement $config = null): void
     {
         // This is plugin entry point. You can initialize things you need here,
         // and hook them into psalm using RegistrationInterface
