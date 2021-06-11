@@ -1,4 +1,5 @@
 <?php
+
 namespace Weirdan\PsalmPluginSkeleton\Tests;
 
 use SimpleXMLElement;
@@ -10,7 +11,7 @@ use Psalm\Plugin\RegistrationInterface;
 class PluginTest extends TestCase
 {
     /**
-     * @var ObjectProphecy
+     * @var ObjectProphecy<RegistrationInterface>
      */
     private $registration;
 
