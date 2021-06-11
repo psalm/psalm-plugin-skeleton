@@ -16,33 +16,41 @@
         "phpunit/phpunit": "^9.5.5",
         "squizlabs/php_codesniffer": "^3.3",
         "psalm/plugin-phpunit": "^0.16.0",
-        "weirdan/prophecy-shim": "^2.0"
+        "weirdan/prophecy-shim": "^2.0",
+        "weirdan/codeception-psalm-module": "^0.13.1",
+        "codeception/codeception": "^4.1"
     },
     "extra": {
-        "psalm" : {
+        "psalm": {
             "pluginClass": "Weirdan\\PsalmPluginSkeleton\\Plugin"
         }
     },
     "autoload": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\": ["."]
+            "Weirdan\\PsalmPluginSkeleton\\": [
+                "."
+            ]
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Weirdan\\PsalmPluginSkeleton\\Tests\\": "tests"
+            "Weirdan\\PsalmPluginSkeleton\\Tests\\": [
+                "tests/_support",
+                "tests"
+            ]
         }
     },
-    "scripts" : {
+    "scripts": {
         "check": [
+            "@analyze",
             "@cs-check",
-            "@test",
-            "@analyze"
+            "@unit-tests",
+            "@acceptance-tests"
         ],
-        "analyze": "psalm",
+        "analyze": "codecept build && psalm",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
-        "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+        "unit-tests": "phpunit --colors=always",
+        "acceptance-tests": "codecept build && codecept --ansi run acceptance"
     }
 }
