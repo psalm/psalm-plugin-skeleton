@@ -47,7 +47,7 @@
             "@unit-tests",
             "@acceptance-tests"
         ],
-        "analyze": "psalm",
+        "analyze": "codecept build && psalm",
         "cs-check": "phpcs",
         "cs-fix": "phpcbf",
         "unit-tests": "phpunit --colors=always",
