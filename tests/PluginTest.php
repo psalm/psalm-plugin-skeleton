@@ -4,6 +4,7 @@ namespace Weirdan\PsalmPluginSkeleton\Tests;
 
 use SimpleXMLElement;
 use Weirdan\PsalmPluginSkeleton\Plugin;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
@@ -28,9 +29,9 @@ final class PluginTest extends TestCase
     }
 
     /**
-     * @test
      * @return void
      */
+    #[Test]
     public function hasEntryPoint()
     {
         $this->expectNotToPerformAssertions();
@@ -39,9 +40,9 @@ final class PluginTest extends TestCase
     }
 
     /**
-     * @test
      * @return void
      */
+    #[Test]
     public function acceptsConfig()
     {
         $this->expectNotToPerformAssertions();
