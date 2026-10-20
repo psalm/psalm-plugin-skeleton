@@ -9,7 +9,7 @@ use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psalm\Plugin\RegistrationInterface;
 
-class PluginTest extends TestCase
+final class PluginTest extends TestCase
 {
     use ProphecyTrait;
 
@@ -21,6 +21,7 @@ class PluginTest extends TestCase
     /**
      * @return void
      */
+    #[\Override]
     public function setUp(): void
     {
         $this->registration = $this->prophesize(RegistrationInterface::class);
