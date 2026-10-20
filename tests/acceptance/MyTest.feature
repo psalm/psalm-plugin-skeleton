@@ -14,12 +14,6 @@ Feature: basics
         <plugins>
           <pluginClass class="Weirdan\PsalmPluginSkeleton\Plugin" />
         </plugins>
-        <issueHandlers>
-          <MissingPureAnnotation errorLevel="suppress" />
-          <MissingAbstractPureAnnotation errorLevel="suppress" />
-          <MissingImmutableAnnotation errorLevel="suppress" />
-          <MissingInterfaceImmutableAnnotation errorLevel="suppress" />
-        </issueHandlers>
       </psalm>
       """
   Scenario: run without errors
