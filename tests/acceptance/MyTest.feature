@@ -7,7 +7,7 @@ Feature: basics
     Given I have the following config
       """
       <?xml version="1.0"?>
-      <psalm totallyTyped="true">
+      <psalm errorLevel="1">
         <projectFiles>
           <directory name="."/>
         </projectFiles>
@@ -34,6 +34,6 @@ Feature: basics
     When I run Psalm
     Then I see these errors
       | Type                  | Message                                                                             |
-      | InvalidScalarArgument | /Argument 1 of atan expects float, (string(not a number)\|"not a number") provided/ |
+      | InvalidScalarArgument | Argument 1 of atan expects float, but 'not a number' provided                       |
     And I see no other errors
 

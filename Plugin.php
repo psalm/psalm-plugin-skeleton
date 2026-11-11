@@ -6,9 +6,10 @@ use SimpleXMLElement;
 use Psalm\Plugin\PluginEntryPointInterface;
 use Psalm\Plugin\RegistrationInterface;
 
-class Plugin implements PluginEntryPointInterface
+final class Plugin implements PluginEntryPointInterface
 {
     /** @return void */
+    #[\Override]
     public function __invoke(RegistrationInterface $registration, ?SimpleXMLElement $config = null): void
     {
         // This is plugin entry point. You can initialize things you need here,
@@ -20,7 +21,7 @@ class Plugin implements PluginEntryPointInterface
         // $registration->addStubFile(__DIR__ . '/stubs/YourStub.php');
         // ```
         foreach ($this->getStubFiles() as $file) {
-            $psalm->addStubFile($file);
+            $registration->addStubFile($file);
         }
 
         // Psalm allows arbitrary content to be stored under you plugin entry in
@@ -33,6 +34,8 @@ class Plugin implements PluginEntryPointInterface
     /** @return list<string> */
     private function getStubFiles(): array
     {
-        return glob(__DIR__ . '/stubs/*.phpstub') ?: [];
+        $files = glob(__DIR__ . '/stubs/*.phpstub');
+
+        return $files === false ? [] : $files;
     }
 }

@@ -4,12 +4,13 @@ namespace Weirdan\PsalmPluginSkeleton\Tests;
 
 use SimpleXMLElement;
 use Weirdan\PsalmPluginSkeleton\Plugin;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psalm\Plugin\RegistrationInterface;
 
-class PluginTest extends TestCase
+final class PluginTest extends TestCase
 {
     use ProphecyTrait;
 
@@ -21,15 +22,16 @@ class PluginTest extends TestCase
     /**
      * @return void
      */
+    #[\Override]
     public function setUp(): void
     {
         $this->registration = $this->prophesize(RegistrationInterface::class);
     }
 
     /**
-     * @test
      * @return void
      */
+    #[Test]
     public function hasEntryPoint()
     {
         $this->expectNotToPerformAssertions();
@@ -38,9 +40,9 @@ class PluginTest extends TestCase
     }
 
     /**
-     * @test
      * @return void
      */
+    #[Test]
     public function acceptsConfig()
     {
         $this->expectNotToPerformAssertions();
